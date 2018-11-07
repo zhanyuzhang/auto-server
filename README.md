@@ -1,5 +1,5 @@
 # awesome-server
-An http server baseed on gulp-connect
+An http server based on gulp-connect.  when html file, js file, css file or image in the root director has changed, it will refresh the browser automatically.
 
 # install
 ```
