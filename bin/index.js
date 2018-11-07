@@ -9,7 +9,7 @@ program
   .option('-p, --port', 'select port to use, default: 3000')
   .parse(process.argv)
 
-// 获取端口号，如果没有默认使用3000
+// get port from args, if undefined set 3000 as default.
 const [ port = 3000 ] = program.args;
 
 const args = [
