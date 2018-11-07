@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
+const { spawn } = require('child_process');
+const path = require('path');
 const program = require('commander');
+
 program
   .version('1.0.4')
   .option('-p, --port', 'select port to use, default: 3000')
@@ -8,9 +11,6 @@ program
 
 // 获取端口号，如果没有默认使用3000
 const [ port = 3000 ] = program.args;
-
-const { spawn } = require('child_process');
-const path = require('path');
 
 const args = [
   require.resolve('gulp/bin/gulp'),
