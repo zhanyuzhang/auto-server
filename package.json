@@ -8,6 +8,15 @@
   "repository": "git@github.com:zhanyuzhang/auto-server.git",
   "author": "chesszhang <1130142064@qq.com>",
   "license": "MIT",
+  "keywords": [
+    "node",
+    "node-server",
+    "server",
+    "http-server",
+    "gulp",
+    "gulp-connect",
+    "gulp-server"
+  ],
   "dependencies": {
     "commander": "^2.19.0",
     "gulp": "^3.9.1",
