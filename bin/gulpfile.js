@@ -1,12 +1,11 @@
 const gulp = require('gulp');
 const connect = require('gulp-connect');
-const ip = require('ip');
 const open = require('open');
 
 const argv = process.argv;
 const cwd = argv[argv.indexOf('--cwd') + 1];
-const host = ip.address();
 const port = argv[argv.indexOf('--port') + 1];
+const host = argv[argv.indexOf('--host') + 1];
 
 gulp.task('connect', function() {
   connect.server({

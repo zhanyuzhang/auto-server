@@ -3,14 +3,19 @@
 const { spawn } = require('child_process');
 const path = require('path');
 const program = require('commander');
+const chalk = require('chalk');
+const ip = require('ip');
+
+const packageJson = require('../package.json');
 
 program
-  .version('1.0.4')
-  .option('-p, --port', 'select port to use, default: 3000')
+  .version(packageJson.version)
+  .option('--port <port>', 'select port to use, default: 3000')
+  .option('--host <host>', 'select host to use, default: your IP adress')
   .parse(process.argv)
 
-// get port from args, if undefined set 3000 as default.
-const [ port = 3000 ] = program.args;
+const port = Number(program.port) || 3000;
+const host = program.host || ip.address();
 
 const args = [
   require.resolve('gulp/bin/gulp'),
@@ -19,6 +24,8 @@ const args = [
   '--color',
   '--port',
   port,
+  '--host',
+  host,
   '--cwd',
   process.cwd()
 ];
