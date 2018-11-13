@@ -14,13 +14,13 @@ awesome-server
 ```
 
 # options
-*port*
+* port
 The default `port` is `3000`, if you want to set a custom port, you can add `--port` parammeter, just as follows:
 ```
 awesome-server --port 8080
 ```
 
-*host*
+* host
 The default `host` is your `IP adress`, if you want to set a custom host, you can add `--host` parammeter, just as follows:
 ```
 awesome-server --host localhost
