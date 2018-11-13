@@ -7,7 +7,7 @@ npm install awesome-server -g
 ```
 
 # usage
-Go to the director which you want to serve, and then:
+Go to the directory which you want to serve, and then:
 
 ```
 awesome-server
