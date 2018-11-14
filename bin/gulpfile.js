@@ -1,3 +1,4 @@
+const fs = require('fs');
 const gulp = require('gulp');
 const connect = require('gulp-connect');
 const open = require('open');
@@ -23,11 +24,23 @@ gulp.task('connect', function() {
 const suffixList = ['.html', '.css', '.js', '.png', '.jpg', '.gif'];
 const globs = suffixList.map((suffix) => `${cwd.replace(/\\/g, '/')}/**/*${suffix}`);
 
+// Cache files content，when press `ctrl+s` will trigger gulp.change event although file has no chane,
+// so we should compare the file content to judge whether it has changed.
+const fileContentCache = {};
 gulp.task('watch', function () {
-  gulp.watch(globs, function() {
-    gulp.src(globs)
-        .pipe(connect.reload())
-  });
+  gulp.watch(globs, function(event) { 
+    const filePath = event.path;
+      try {
+        const fileContent = fs.readFileSync(event.path, 'utf8');
+        if(fileContent !== fileContentCache[filePath]) {
+          fileContentCache[filePath] = fileContent;
+          gulp.src(globs)
+          .pipe(connect.reload())
+        }
+      } catch(e) {
+        console.error(JSON.stringify(e));
+      }
+    });
 });
 
 gulp.task('default', ['connect', 'watch']);
