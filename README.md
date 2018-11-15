@@ -26,3 +26,7 @@ The default `host` is your `IP adress`, if you want to set a custom host, you ca
 awesome-server --host localhost
 ```
 
+# Todo
+* Ignore node_modules changes
+* show the server address
+
