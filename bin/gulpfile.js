@@ -24,8 +24,8 @@ gulp.task('connect', function() {
 const suffixList = ['.html', '.css', '.js', '.png', '.jpg', '.gif'];
 const globs = suffixList.map((suffix) => `${cwd.replace(/\\/g, '/')}/**/*${suffix}`);
 
-// Cache files content，when press `ctrl+s` will trigger gulp.change event although file has no chane,
-// so we should compare the file content to judge whether it has changed.
+// Cache files content，when press `ctrl+s` will trigger gulp.change event, although file has no change,
+// so we should compare the file content to judge whether it has changed to reload the page.
 const fileContentCache = {};
 gulp.task('watch', function () {
   gulp.watch(globs, function(event) { 
